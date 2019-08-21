@@ -4,8 +4,7 @@ pipeline {
     stages {
         stage('Prepare') {
           steps {
-            sh "npm install -g yarn"
-            sh "yarn install"
+            sh "yarn install --no-progress --silent"
           }
         }
         stage('Build') {
@@ -16,7 +15,6 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh "yarn test"
                 echo 'Testing..'
             }
         }
