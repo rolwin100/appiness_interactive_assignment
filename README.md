@@ -1,3 +1,6 @@
+
+![Build Status](https://ci.techjini.com/job/React%20Boilerplate/badge/icon)
+
 # Getting Started
 
 ## Local Development with Docker
