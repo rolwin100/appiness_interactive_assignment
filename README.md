@@ -1,5 +1,4 @@
-
-![Build Status](https://ci.techjini.com/job/React%20Boilerplate/badge/icon)
+![Build Status](https://ci.techjini.com/buildStatus/icon?job=react_boilerplate)
 
 # Getting Started
 
