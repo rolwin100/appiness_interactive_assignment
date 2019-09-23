@@ -11,19 +11,27 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh "yarn build"
                 echo 'Building..'
+                sh "yarn build"
             }
         }
         stage('Test') {
             steps {
                 echo 'Testing..'
+                sh "yarn test"
             }
         }
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
             }
+        }
+    }
+
+    post { 
+        cleanup { cleanWs() } 
+        failure {
+            emailext to: "robin.s", subject: '${DEFAULT_SUBJECT}', body: '${DEFAULT_CONTENT}'
         }
     }
 }
