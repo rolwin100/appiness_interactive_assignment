@@ -11,11 +11,11 @@ RUN npm  install -g n
 RUN n 10.16.0
 
 RUN apt-get install wget unzip
-RUN mkdir /opt/sonarscanner
-RUN cd /opt/sonarscanner
+RUN mkdir /var/sonarscanner
+RUN cd /var/sonarscanner
 RUN wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.2.0.1227-linux.zip
 RUN unzip sonar-scanner-cli-3.2.0.1227-linux.zip
 RUN rm sonar-scanner-cli-3.2.0.1227-linux.zip
 RUN chmod +x sonar-scanner-3.2.0.1227-linux/bin/sonar-scanner
-RUN ln -s /opt/sonarscanner/sonar-scanner-3.2.0.1227-linux/bin/sonar-scanner /usr/local/bin/sonar-scanner
+RUN ln -s /var/sonarscanner/sonar-scanner-3.2.0.1227-linux/bin/sonar-scanner /usr/local/bin/sonar-scanner
 
