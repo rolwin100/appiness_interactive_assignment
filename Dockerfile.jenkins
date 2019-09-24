@@ -1,7 +1,21 @@
 FROM ubuntu:18.04
 
-RUN apt-get update && apt-get install -y npm curl
+RUN apt-get update && apt-get install -y npm curl openjdk-8-jdk
 
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
 RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
 RUN apt-get install -y yarn
+RUN curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
+
+RUN npm -g n
+RUN n 10.16.0
+
+
+RUN mkdir /opt/sonarscanner
+RUN cd /opt/sonarscanner
+RUN wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.2.0.1227-linux.zip
+RUN unzip sonar-scanner-cli-3.2.0.1227-linux.zip
+RUN rm sonar-scanner-cli-3.2.0.1227-linux.zip
+RUN chmod +x sonar-scanner-3.2.0.1227-linux/bin/sonar-scanner
+RUN ln -s /opt/sonarscanner/sonar-scanner-3.2.0.1227-linux/bin/sonar-scanner /usr/local/bin/sonar-scanner
+
