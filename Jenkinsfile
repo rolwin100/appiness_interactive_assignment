@@ -4,6 +4,18 @@ pipeline {
     }
   
     stages {
+        stage('SonarQube analysis') {
+            steps {
+                script {
+                    def scannerHome = tool 'SonarScanner';
+                    echo "{scannerHome}" 
+                
+                    withSonarQubeEnv('SonarQube') {
+                      sh "${scannerHome}/bin/sonar-scanner"
+                    }
+                }
+            }
+        }
         stage('Prepare') {
           steps {
             sh "yarn install --no-progress --silent"
