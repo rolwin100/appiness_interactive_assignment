@@ -9,7 +9,7 @@ pipeline {
         stage('SonarQube analysis') {
             steps {
 				withSonarQubeEnv('SonarQube') {
-					sh "/usr/local/bin/sonar-scanner"
+					sh "sonar-scanner"
 				}
             }
         }
