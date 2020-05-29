@@ -1,4 +1,4 @@
-![Build Status](https://ci.techjini.com/buildStatus/icon?job=react_boilerplate)
+![Build Status](https://ci.techjini.com/buildStatus/icon?job=dealberg)
 
 # Getting Started
 
