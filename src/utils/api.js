@@ -2,9 +2,18 @@
 /** eslint-disable-next-line no-underscore-dangle */
 import axios from 'axios';
 
+import MockAdapter from 'axios-mock-adapter';
+import { authHeaders } from 'utils/auth';
+import backend from './backend';
+
+const mock = new MockAdapter(axios);
+backend(mock);
+
 let headers = {};
 headers['Content-Type'] = 'application/json';
+headers.Accept = 'application/json';
 
+headers = authHeaders(headers);
 /**
  * @description Make a get request to an api using this method
  *
@@ -66,5 +75,6 @@ const apiRequests = {
   post: postApi,
   delete: deleteApi,
   patch: patchApi,
+  mock,
 };
 export default apiRequests;

@@ -1,19 +1,19 @@
-import { GET_USERS_PENDING, GET_USERS_FULLFILLED, GET_USERS_REJECTED } from '../actions';
+import { GET_LOGIN_PENDING, GET_LOGIN_FULLFILLED, GET_LOGIN_REJECTED } from '../actions';
 
-const users = (state = { pending: false, data: { users: [] }, error: null }, action) => {
+const auth = (state = { pending: false, data: [], error: null }, action) => {
   switch (action.type) {
-    case GET_USERS_PENDING:
+    case GET_LOGIN_PENDING:
       return {
         pending: true,
         error: null,
       };
-    case GET_USERS_FULLFILLED:
+    case GET_LOGIN_FULLFILLED:
       return {
         ...state,
         pending: false,
         data: action.data,
       };
-    case GET_USERS_REJECTED:
+    case GET_LOGIN_REJECTED:
       return {
         ...state,
         pending: false,
@@ -24,4 +24,4 @@ const users = (state = { pending: false, data: { users: [] }, error: null }, act
   }
 };
 
-export default users;
+export default auth;

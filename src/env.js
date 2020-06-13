@@ -11,7 +11,7 @@ export const getHost = () => {
   const pattern = new RegExp('localhost|127.0.0.1', 'i');
 
   if (pattern.test(hostname)) {
-    return 'kinduct.codes';
+    return 'appiness.codes';
   }
 
   return hostname

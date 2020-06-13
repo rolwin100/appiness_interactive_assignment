@@ -10,7 +10,7 @@ export const getUsersPending = () => ({
   type: GET_USERS_PENDING,
 });
 
-export const getusersFullfilled = (data) => ({
+export const getUsersFullfilled = (data) => ({
   type: GET_USERS_FULLFILLED,
   data,
 });

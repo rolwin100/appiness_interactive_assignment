@@ -1,5 +1,6 @@
 import React from 'react';
-import { PageHeader } from 'antd';
+import { PageHeader, Button } from 'antd';
+import { logout } from 'utils/auth';
 
 const style = {
   sitePageHeader: {
@@ -11,7 +12,9 @@ export default () => (
   <PageHeader
     className={style.sitePageHeader}
     onBack={() => null}
-    title="Title"
-    subTitle="This is a subtitle"
+    title="Appinesss"
+    extra={[
+      <Button key="1" onClick={logout}>Logout</Button>,
+    ]}
   />
 );

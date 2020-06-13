@@ -2,20 +2,23 @@
 
 import { put, call, takeEvery } from 'redux-saga/effects';
 import api from 'utils/api';
+import { URLS } from 'constants/urls';
+import { authError } from 'utils/auth';
 import {
-  GET_USERS, getusersFullfilled, getUsersRejected,
+  GET_USERS, getUsersFullfilled, getUsersRejected,
 } from '../actions';
 /**
  * worker saga
  */
 const { get } = api;
+const { USERS } = URLS;
 
 export function* getUsersWorker() {
   try {
-    const response = yield call(get, 'https://reqres.in/api/users');
-    // console.log(response);
-    yield put(getusersFullfilled(response.data));
+    const response = yield call(get, USERS);
+    yield put(getUsersFullfilled(response.data));
   } catch (e) {
+    authError(e.message);
     yield put(getUsersRejected(e));
   }
 }
@@ -24,6 +27,6 @@ export function* getUsersWorker() {
 /**
  * watcher saga
  */
-export default function* getUserWatcher() {
+export default function* getUsersWatcher() {
   yield takeEvery(GET_USERS, getUsersWorker);
 }

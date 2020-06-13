@@ -1,4 +1,4 @@
-![Build Status](https://ci.techjini.com/buildStatus/icon?job=dealberg)
+![Build Status](https://ci.techjini.com/buildStatus/icon?job=appiness)
 
 # Getting Started
 
